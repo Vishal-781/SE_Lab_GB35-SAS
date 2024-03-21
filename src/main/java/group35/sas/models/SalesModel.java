@@ -1,51 +1,49 @@
 package group35.sas.models;
+import java.util.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "sales_info")
 public class SalesModel {
-    @Id
-    private String salesId;
     private String customerName;
     private String phoneNumber;
-    private String itemName;
+    private List<String>  items;
+    private List<Integer> quantities;
 
     public SalesModel() {
     }
-    public SalesModel(String salesId, String customerName, String phoneNumber, String itemName) {
-        this.salesId = salesId;
+    public SalesModel(String customerName, String phoneNumber,List<String>  items, List<Integer> quantities) {
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
-        this.itemName = itemName;
+        this.items = items;
+        this.quantities = quantities;
     }
-    public String getSalesId() {
-        return salesId;
-    }
+ 
     public String getCustomerName() {
         return customerName;
     }
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    public String getItemName() {
-        return itemName;
-    }
-    public void setSalesId(String salesId) {
-        this.salesId = salesId;
-    }
+    
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+
+    public List<String> getItems() {
+        return items;
+    }
+    public void setItems(List<String> items) {
+        this.items = items;
     }
     
+    public List<Integer> getQuantities() {
+        return quantities;
+    }
+    public void setQuantities(List<Integer> quantities) {
+        this.quantities = quantities;
+    }
     
 
 }

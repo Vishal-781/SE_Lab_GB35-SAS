@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import group35.sas.customResponses.FailureResponse;
 import group35.sas.models.BillModel;
 import group35.sas.models.SalesModel;
+import group35.sas.models.TransactionsModel;
 import group35.sas.service.SalesService;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
@@ -23,12 +25,10 @@ public class SalesController {
 
     @PostMapping
     public BillModel createSales(@RequestBody SalesModel salesModel){
-        salesService.createSales(salesModel);
-        salesService.inventoryUpdate(salesModel);
         return salesService.generateBill(salesModel);
     }
     @GetMapping
-    public List<SalesModel> getMethodName() {
+    public List<TransactionsModel> getMethodName() {
         return salesService.getAllSales();
     }
     
