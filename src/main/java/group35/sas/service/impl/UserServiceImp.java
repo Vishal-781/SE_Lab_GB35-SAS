@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import group35.sas.exceptions.ItemNotFoundException;
 import group35.sas.models.UserModel;
 import group35.sas.repository.UserRepository;
 import group35.sas.service.UserService;
@@ -40,6 +41,10 @@ public class UserServiceImp implements UserService {
     @Override
     public UserModel getUser(String userId) {
          // More bussiness logic
+          if(userRepository.findById(userId).isEmpty())
+        {
+          throw new ItemNotFoundException("User not Found");
+        }
         return userRepository.findById(userId).get();
     }
 

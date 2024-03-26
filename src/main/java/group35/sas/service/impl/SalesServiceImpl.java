@@ -1,5 +1,6 @@
 package group35.sas.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -68,7 +69,22 @@ public class SalesServiceImpl implements SalesService{
 
     @Override
     public BillModel generateBill(SalesModel salesModel) {
-        return null;
+        String customerName = salesModel.getCustomerName();
+        List<String> items = salesModel.getItems();
+        List<Integer> quantity = salesModel.getQuantities();
+        List<Double> price = new ArrayList<>();
+
+        Double sum = 0.0;
+        for(int i = 0;i<items.size();i++)
+        {
+            Double  p = itemService.getItem(items.get(i)).getSellPrice();
+            price.add((quantity.get(i))*p);
+            sum += (quantity.get(i))*p;
+
+        }
+
+        return new BillModel(customerName,items,quantity,price,sum);
+        
     }
 
     @Override
