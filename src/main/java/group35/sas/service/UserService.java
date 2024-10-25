@@ -2,7 +2,7 @@ package group35.sas.service;
 
 import java.util.List;
 
-import group35.sas.models.UserModel;
+import group35.sas.models.user.UserModel;
 
 public interface UserService {
     public String createUser(UserModel userModel);

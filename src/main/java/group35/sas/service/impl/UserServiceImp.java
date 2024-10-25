@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import group35.sas.exceptions.ItemNotFoundException;
-import group35.sas.models.UserModel;
+import group35.sas.models.user.UserModel;
 import group35.sas.repository.UserRepository;
 import group35.sas.service.UserService;
 

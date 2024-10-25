@@ -3,7 +3,7 @@ package group35.sas.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import group35.sas.models.UserModel;
+import group35.sas.models.user.UserModel;
 import group35.sas.service.UserService;
 import java.util.List;
 
